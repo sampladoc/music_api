@@ -1,0 +1,332 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Swagger musicapp App",
+    "description": "musicapp app API documentation",
+    "contact": {
+      "name": "musicapp Team"
+    },
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "host": "http://a738148b4820411e78eae3e3b8459e1a-1999118556.us-east-1.ela.amazonaws.com/",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "Bearer":{
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/accounts/login": {
+     "post": {
+       "tags": ["auth"],
+       "summary": "Login",
+       "description": "Authentication with email and password",
+       "operationId": "login",
+       "parameters": [{
+         "name": "email",
+         "in": "formData",
+         "description": "User email",
+         "required": true,
+         "type": "string"
+       },{
+         "name": "password",
+         "in": "formData",
+         "description": "User password",
+         "required": true,
+         "type": "string"
+       }],
+       "responses": {
+          "200": {
+            "description": "Endpoint returned without errors",
+            "examples": [
+              {
+                "success": true,
+                "data": {
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ",
+                  "message": "Logged in succesfully"
+                }
+              },
+              {
+                "success": false,
+                "data": {
+                  "message": "Wrong email or password"
+                }
+              }
+            ]
+          },
+          "404": {
+            "description": "Route not found"
+          },
+          "500": {
+            "description": "Something went wrong"
+          }
+        }
+      }
+    },
+    "/accounts/signup": {
+     "post": {
+       "tags": ["auth"],
+       "summary": "Signup",
+       "description": "Register for Song writters and Producer",
+       "operationId": "login",
+       "parameters": [{
+         "name": "email",
+         "in": "formData",
+         "description": "User email",
+         "required": true,
+         "type": "string"
+       },{
+         "name": "password",
+         "in": "formData",
+         "description": "User password",
+         "required": true,
+         "type": "string"
+       },{
+         "name": "alias",
+         "in": "formData",
+         "description": "User alias",
+         "required": true,
+         "type": "string"
+       },{
+         "name": "lastName",
+         "in": "formData",
+         "description": "User last name",
+         "required": true,
+         "type": "string"
+       },{
+         "name": "role",
+         "in": "formData",
+         "description": "User role: song_writer|producer",
+         "required": true,
+         "type": "string"
+       },{
+         "name": "fullAddress",
+         "in": "formData",
+         "description": "User full address",
+         "required": false,
+         "type": "string"
+       },{
+         "name": "profilePicture",
+         "in": "formData",
+         "description": "Link to user profile picture",
+         "required": false,
+         "type": "string"
+       },{
+         "name": "birthdate",
+         "in": "formData",
+         "description": "User birthdate",
+         "required": false,
+         "type": "date"
+       },{
+         "name": "phoneNumber",
+         "in": "formData",
+         "description": "User phone number",
+         "required": false,
+         "type": "string"
+       }],
+       "responses": {
+          "200": {
+            "description": "Endpoint returned without errors",
+            "examples": [
+              {
+                "success": true,
+                "data": {
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ",
+                  "message": "Your new account was succesfully created"
+                }
+              },
+              {
+                "success": false,
+                "data": {
+                  "message": "Email already been used"
+                }
+              },
+              {
+                "success": false,
+                "data": {
+                  "message": "REQUIRED_FIELD_NAME missing"
+                }
+              }
+            ]
+          },
+          "404": {
+            "description": "Route not found"
+          },
+          "500": {
+            "description": "Something went wrong"
+          }
+        }
+      }
+    },
+    "/accounts/info": {
+      "post": {
+        "tags": ["profile"],
+        "summary": "Profile Update",
+        "description": "Edit user profile",
+        "operationId": "profile",
+        "parameters": [{
+          "name": "email",
+          "in": "formData",
+          "description": "User email",
+          "required": false,
+          "type": "string"
+        },{
+          "name": "password",
+          "in": "formData",
+          "description": "User password",
+          "required": false,
+          "type": "string"
+        },{
+          "name": "alias",
+          "in": "formData",
+          "description": "User alias",
+          "required": false,
+          "type": "string"
+        },{
+          "name": "lastName",
+          "in": "formData",
+          "description": "User last name",
+          "required": false,
+          "type": "string"
+        },{
+          "name": "fullAddress",
+          "in": "formData",
+          "description": "User full address",
+          "required": false,
+          "type": "string"
+        },{
+          "name": "profilePicture",
+          "in": "formData",
+          "description": "Link to user profile picture",
+          "required": false,
+          "type": "string"
+        },{
+          "name": "birthdate",
+          "in": "formData",
+          "description": "User birthdate",
+          "required": false,
+          "type": "date"
+        },{
+          "name": "phoneNumber",
+          "in": "formData",
+          "description": "User phone number",
+          "required": false,
+          "type": "string"
+        }],
+        "responses": {
+           "200": {
+             "description": "Endpoint returned without errors",
+             "examples": [
+               {
+                 "success": true,
+                 "data": {
+                   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ",
+                   "message": "Your account was succesfully edited"
+                 }
+               },{
+                 "success": false,
+                 "data": {
+                   "message": "FIELD_NAME already been used"
+                 }
+               },{
+                 "success": false,
+                 "data": {
+                   "message": "Token no valid or expired!"
+                 }
+               }
+             ]
+           },
+           "401": {
+             "description": "Not allowed"
+           },
+           "404": {
+             "description": "Route not found"
+           },
+           "500": {
+             "description": "Something went wrong"
+           }
+         }
+       },
+     "get": {
+       "tags": ["profile"],
+       "summary": "Profile info",
+       "description": "User profile info",
+       "operationId": "profile",
+       "responses": {
+          "200": {
+            "description": "Endpoint returned without errors",
+            "examples": [{
+                "success": true,
+                "data": {
+                  "name": "John",
+                  "lastName": "Petrucci",
+                  "alias": "God",
+                  "email": "Petrucci@gmail.com",
+                  "role": "song_writer",
+                  "phoneNumber": "+16308069303",
+                  "birthdate": "2016-07-02T19:27:28.000+0000",
+                  "fullAddress": "1164 N Dearborn, Chicago, Il"
+                }
+              },{
+                "success": false,
+                "data": {
+                  "message": "user not found"
+                }
+              },{
+                "success": false,
+                "data": {
+                  "message": "Token no valid or expired!"
+                }
+              }
+            ]
+          },
+          "401": {
+            "description": "Not allowed"
+          },
+          "404": {
+            "description": "Route not found"
+          },
+          "500": {
+            "description": "Something went wrong"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PayloadModel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "profilePicture": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

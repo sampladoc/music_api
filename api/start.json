@@ -1,0 +1,32 @@
+  {"apps": [
+      {
+        "name": "musicapp",
+        "script": "./src/index.js",
+        "watch": true,
+        "env": {
+            "PORT": 3000,
+            "NODE_ENV": "development",
+            "DATABASE": "musicapp",
+            "DATABASE_SERVER": "localhost",
+            "MULTIMEDIA_SERVICE": "localhost",
+            "AWS_ACCESS_KEY": "AKIAYRVLY3AOG3GCHSOQ",
+            "AWS_SECRET_KEY": "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",
+            "AWS_BUCKET_REGION": "us-east-3",
+            "AWS_BUCKET_NAME":"musicappmedia",
+            "AWS_BUCKET_NAME_IMAGE": "musicappmediaimage"
+        },
+        "env_production": {
+            "PORT": 3000,
+            "NODE_ENV": "production",
+            "DATABASE": "musicapp",
+            "DATABASE_SERVER": "10.0.10.187",
+            "MULTIMEDIA_SERVICE": "localhost",
+            "AWS_ACCESS_KEY": "AKIAYRVLY3AOG3GCHSOQ",
+            "AWS_SECRET_KEY": "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",
+            "AWS_BUCKET_REGION": "us-east-3",
+            "AWS_BUCKET_NAME":"musicappmedia",
+            "AWS_BUCKET_NAME_IMAGE": "musicappmediaimage"
+        }
+      }
+  ]
+}
